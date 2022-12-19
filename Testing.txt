@@ -1,0 +1,4 @@
+Plan to test the game: Testing the functionality of the application
+1 Test case: My plan is to test the suffleArray and it should use toBe and ensure all part of the app is working properly
+1 bug report: Make sure that Bots are not repeated.
+1  test plan, another case, or another bug report: A bug could be that not all bots are displayed
