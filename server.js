@@ -1,3 +1,4 @@
+require('dotenv').config()
 var Rollbar = require('rollbar');
 var rollbar = new Rollbar({
   accessToken: 'POST_SERVER_ITEM_ACCESS_TOKEN',
@@ -12,8 +13,10 @@ const app = express()
 app.use(express.static(__dirname + 'public'));
 const {bots, playerRecord} = require('./data')
 const {shuffleArray} = require('./utils')
+const cors = require('cors')
 
 app.use(express.json())
+app.use(cors())
 
 app.get('/api/robots', (req, res) => {
     try {
@@ -22,6 +25,9 @@ app.get('/api/robots', (req, res) => {
         console.log('ERROR GETTING BOTS', error)
         res.sendStatus(400)
     }
+})
+app.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname,'../public/index.html'))
 })
 
 app.get('/api/robots/five', (req, res) => {
@@ -79,3 +85,5 @@ app.get('/api/player', (req, res) => {
 app.listen(4000, () => {
   console.log(`Listening on 4000`)
 })
+
+rollbar.log("Hello world!");
