@@ -1,4 +1,5 @@
 require('dotenv').config()
+const path = require('path')
 var Rollbar = require('rollbar');
 var rollbar = new Rollbar({
   accessToken: 'POST_SERVER_ITEM_ACCESS_TOKEN',

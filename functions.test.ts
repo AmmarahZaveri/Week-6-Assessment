@@ -1,16 +1,22 @@
 const {shuffleArray} = require('./utils')
 
-describe('shuffleArray should', () => {
-    expect(shuffleArray.returnTwo()).toBe(2)
-})
 
-describe('shuffleArray should', () => {
-    expect(shuffleArray.greeting('Dre')).toBe('Hello Dre.')
-})
+const fruitsArr = [{'fruit':'apple'},{'fruit':'orange'},{'fruit':'kiwi'},{'fruit':'banana'}]
+
+const numArr = [1, 2, 3, 4]
+
 
 describe('shuffleArray should', () => {
-    expect(shuffleArray.add(13, 2)).toBe(15)
+    test('returns an array', ()=> {
+        expect(Array.isArray(shuffleArray(fruitsArr))).toBe(true)
+        expect(Array.isArray(shuffleArray(numArr))).toBe(true)
+
+    })
+
+
+    test('the length of the array should be the same as the array out', ()=> {
+        expect(shuffleArray(fruitsArr)).toHaveLength(fruitsArr.length)
+        expect(shuffleArray(numArr).length).toEqual(numArr.length)
+
+    })
 })
-
-
-
